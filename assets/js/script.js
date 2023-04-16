@@ -17,7 +17,7 @@ $(document).ready(function(){
 		$('#currYear').html((new Date()).getFullYear());
 
     // Load all the archive formats
-		loadArchiveFormats(['rar', 'zip', 'tar']);
+		loadArchiveFormats(['rar', 'zip', 'tar'], () => {});
 
 		// ----- OPEN COMIC FROM COMPUTER -----
     $("#fileup").change(function(){
@@ -86,7 +86,7 @@ $(document).ready(function(){
 				$('#output').empty();
 
 				// Open the file as an archive
-				archiveOpenFile(file, function(archive, err) {
+				archiveOpenFile(file, null, function(archive, err) {
 					if (archive)
 					{
 						$('#output').append("<b>"+archive.file_name+"</b><br><i>Click on the image to enlarge</i><br><br>");
